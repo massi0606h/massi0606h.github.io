@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte - Lunette Dallas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center shrink-0">
+                    <div class="flex flex-col items-center mr-2">
+                        <span class="simulated-logo">LD</span>
+                        <span class="logo-text-detail -mt-1">Lunette dallas</span>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 flex-grow justify-center">
+                    <a href="index.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">Accueil</a>
+                    <a href="vue.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">Lunettes de Vue</a>
+                    <a href="soleil.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">Lunettes de Soleil</a>
+                    <a href="homme.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">Homme</a>
+                    <a href="femme.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">Femme</a>
+                    <a href="a_propos.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">À Propos</a>
+                    <a href="contact.html" class="nav-link-header text-gray-600 hover:text-teal-500 px-2 py-1 rounded-md text-sm lg:text-base">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-3 shrink-0">
+                    <div class="relative hidden sm:block">
+                        <input type="search" id="search-input" placeholder="Rechercher..." class="w-32 md:w-40 lg:w-56 pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <div id="search-suggestions" class="hidden"></div>
+                    </div>
+                    <a id="account-link-header" href="account.html" class="account-link-header-item text-gray-600 hover:text-teal-500" title="Mon Compte">
+                        <i class="fas fa-user-circle text-2xl"></i>
+                        <span id="account-link-text" class="hidden lg:inline ml-1 text-sm">Compte</span>
+                    </a>
+                    <a href="panier.html" class="text-gray-600 hover:text-teal-500 relative" title="Panier">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-teal-500">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="sm:hidden my-2 px-2">
+                <div class="relative">
+                    <input type="search" id="mobile-search-input" placeholder="Rechercher..." class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                    <div id="mobile-search-suggestions" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg border-t border-gray-200">
+            <a href="index.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">Accueil</a>
+            <a href="vue.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">Lunettes de Vue</a>
+            <a href="soleil.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">Lunettes de Soleil</a>
+            <a href="homme.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">Lunettes Homme</a>
+            <a href="femme.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">Lunettes Femme</a>
+            <a href="a_propos.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">À Propos</a>
+            <a href="contact.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 nav-link-mobile">Contact</a>
+            <a id="mobile-account-link" href="account.html" class="block py-3 px-4 text-gray-700 hover:bg-gray-100 hover:text-teal-500 border-t border-gray-200">Mon Compte</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="account_page_content">
+            <div id="login-form-container" class="auth-form-container hidden">
+                <h2>Connexion</h2>
+                <form id="login-form">
+                    <div class="mb-4">
+                        <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="login-email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="exemple@domaine.com">
+                    </div>
+                    <div class="mb-6">
+                        <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
+                        <input type="password" id="login-password" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="********">
+                    </div>
+                    <div id="login-error-message" class="text-red-500 text-sm mb-4 hidden"></div>
+                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 mb-4">Se Connecter</button>
+                    <p class="text-sm text-center text-gray-600">Pas encore de compte? <a href="#" id="show-register-form-link" class="text-teal-500 hover:underline">S'inscrire</a></p>
+                </form>
+                <div class="my-6 flex items-center"><hr class="flex-grow border-gray-300"><span class="mx-4 text-gray-500 text-sm">OU</span><hr class="flex-grow border-gray-300"></div>
+                <div class="space-y-3">
+                    <button class="w-full social-login-btn google-btn font-semibold py-3 px-4 rounded-lg flex items-center justify-center border border-gray-300 hover:bg-gray-50"><i class="fab fa-google mr-2 text-red-500"></i>Continuer avec Google (Sim.)</button>
+                    <button class="w-full social-login-btn facebook-btn font-semibold py-3 px-4 rounded-lg flex items-center justify-center border border-gray-300 hover:bg-gray-50"><i class="fab fa-facebook-f mr-2 text-blue-600"></i>Continuer avec Facebook (Sim.)</button>
+                </div>
+            </div>
+
+            <div id="register-form-container" class="auth-form-container hidden">
+                <h2>Inscription</h2>
+                <form id="register-form">
+                    <div class="mb-4">
+                        <label for="register-name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
+                        <input type="text" id="register-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="Votre nom complet">
+                    </div>
+                    <div class="mb-4">
+                        <label for="register-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="register-email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="exemple@domaine.com">
+                    </div>
+                    <div class="mb-4">
+                        <label for="register-phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone (Optionnel)</label>
+                        <input type="tel" id="register-phone" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="0612345678">
+                    </div>
+                    <div class="mb-6">
+                        <label for="register-password" class="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
+                        <input type="password" id="register-password" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500" placeholder="********">
+                    </div>
+                    <div id="register-feedback-message" class="text-sm mb-4 hidden"></div>
+                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 mb-4">S'inscrire</button>
+                    <p class="text-sm text-center text-gray-600">Déjà un compte? <a href="#" id="show-login-form-link" class="text-teal-500 hover:underline">Se connecter</a></p>
+                </form>
+            </div>
+
+            <section id="user_dashboard" class="page-section hidden"> <div class="dashboard-header p-6 rounded-lg mb-8">
+                    <h1 class="text-3xl font-bold" id="user-dashboard-welcome-message">Bienvenue !</h1>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-3"><i class="fas fa-box-open mr-2 text-teal-500"></i>Mes Commandes</h2>
+                        <div id="user-orders-container">
+                            <p class="text-gray-600 mt-2">Chargement des commandes...</p>
+                        </div>
+                        <a href="index.html" class="mt-4 inline-block text-teal-500 hover:text-teal-700 font-semibold">Commencer vos achats <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-3"><i class="fas fa-user-edit mr-2 text-teal-500"></i>Mes Informations</h2>
+                        <p class="text-gray-600">Email: <span id="user-dashboard-user-email">non défini</span></p>
+                        <p class="text-gray-600">Nom: <span id="user-dashboard-user-name">non défini</span></p>
+                        </div>
+                    <div class="dashboard-card">
+                        <h2 class="text-xl font-semibold text-gray-700 mb-3"><i class="fas fa-sign-out-alt mr-2 text-red-500"></i>Session</h2>
+                        <button id="logout-button" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">Se Déconnecter</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4"><span class="simulated-logo !text-white text-2xl">LD</span> <span class="ml-2">Lunette Dallas</span></h3>
+                    <p class="text-sm">Votre regard, notre passion. Lunettes de qualité supérieure pour tous les styles.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white">Accueil</a></li>
+                        <li><a href="vue.html" class="hover:text-white">Lunettes de Vue</a></li>
+                        <li><a href="soleil.html" class="hover:text-white">Lunettes de Soleil</a></li>
+                        <li><a href="a_propos.html" class="hover:text-white">Notre Histoire</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contactez-Nous</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i><span id="footer-address">Chargement...</span></li>
+                        <li><i class="fas fa-phone-alt mr-2"></i><span id="footer-phone">Chargement...</span></li>
+                        <li><i class="fas fa-envelope mr-2"></i><a href="#" id="footer-email-link" class="hover:text-white"><span id="footer-email">Chargement...</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>© <span id="currentYear"></span> Lunette Dallas. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-6 rounded-lg shadow-md transition-all duration-300 opacity-0 translate-y-full z-[101]">
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

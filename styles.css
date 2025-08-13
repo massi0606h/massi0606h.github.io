@@ -1,0 +1,127 @@
+/* styles.css */
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.hero-bg {
+    background-image: url('https://placehold.co/1200x600/e2e8f0/4a5568?text=Collection+Exclusive+Lunette+Dallas');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text-shadow {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.nav-link-header, .account-link-header-item { /* Renamed for clarity */
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link-header:hover, .nav-link-header.active,
+.account-link-header-item:hover, .account-link-header-item.active {
+    color: #38b2ac; /* text-teal-500 */
+}
+
+.nav-link-header.active {
+    background-color: #f0fdfa; /* teal-50 for active nav link background */
+}
+
+/* .page-section { display: none; } */ /* No longer needed for multi-page setup for main sections */
+/* .page-section.active { display: block; } */ /* Main sections are now separate HTML files */
+
+.product-card img[data-action="view-detail"] { cursor: pointer; }
+
+.auth-form-container { max-width: 450px; margin: 2rem auto; padding: 2rem; background-color: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.auth-form-container h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.75rem; color: #2d3748; }
+
+.dashboard-header, .admin-header { background-color: #4fd1c5; color: white; }
+.dashboard-card, .admin-card { background-color: white; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1rem; }
+
+.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
+.modal-content { background-color: #fefefe; margin: 5% auto; padding: 25px; border: 1px solid #888; width: 90%; max-width: 700px; border-radius: 0.5rem; }
+.close-modal-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close-modal-btn:hover, .close-modal-btn:focus { color: black; text-decoration: none; }
+
+.table-auto th, .table-auto td { border: 1px solid #e2e8f0; padding: 0.75rem; text-align: left; }
+.table-auto thead th { background-color: #f7fafc; }
+.btn-admin-action { margin-right: 0.5rem; }
+
+.product-detail-main-image { width: 100%; max-height: 450px; object-fit: contain; border-radius: 0.375rem; margin-bottom: 1rem; border: 1px solid #e2e8f0;}
+.product-detail-thumbnails { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.product-detail-thumbnail { width: 80px; height: 80px; object-fit: cover; border-radius: 0.25rem; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.product-detail-thumbnail.active, .product-detail-thumbnail:hover { border-color: #38b2ac; }
+
+.color-swatches { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.color-swatch { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 2px solid #e2e8f0; transition: transform 0.2s, border-color 0.2s; display: inline-block; }
+.color-swatch.active { border-color: #38b2ac; transform: scale(1.15); box-shadow: 0 0 0 2px white, 0 0 0 4px #38b2ac; }
+
+#product-image-previews, .category-image-preview-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+.img-preview-item { position: relative; }
+.img-preview-item img, .category-image-preview { width: 100px; height: 100px; object-fit: cover; border-radius: 0.25rem; border: 1px solid #ddd; }
+.remove-preview-btn { position: absolute; top: -5px; right: -5px; background: rgba(255,0,0,0.7); color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; border: none; }
+
+.simulated-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #38b2ac;
+    display: inline-block;
+    line-height: 1;
+}
+.logo-text-detail {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.70rem;
+    font-weight: 500;
+    color: #4A5568;
+    display: block;
+    text-align: center;
+    margin-top: -0.2rem;
+    letter-spacing: 0.05em;
+}
+#search-suggestions, #mobile-search-suggestions {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    z-index: 99;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 0 0 0.375rem 0.375rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.suggestion-item { padding: 0.75rem 1rem; cursor: pointer; }
+.suggestion-item:hover { background-color: #f7fafc; }
+
+.admin-tab-btn.active-admin-tab {
+    color: #38b2ac;
+    border-bottom-color: #38b2ac;
+    background-color: white;
+}
+/* Ensure admin content areas are hidden by default if they are tabs within admin.html */
+.admin-content-area.hidden {
+    display: none;
+}
+
+#contact-map-container iframe {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Ensure footer is at the bottom */
+/* body { display: flex; flex-direction: column; min-height: 100vh; } */ /* Already added */
+/* main { flex-grow: 1; } */ /* Already added */
+
